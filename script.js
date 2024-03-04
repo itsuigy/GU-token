@@ -1,14 +1,30 @@
 function github() {
-    window.open('https://github.com/itsuigy/GU-usuario-contrasena');
+    window.open('https://github.com/itsuigy/GU-token');
+}
+
+var currentToken;
+
+function generateToken() {
+    currentToken = generateMD5Token();
+    document.getElementById("tokenText").innerText = "Token generado: " + currentToken;
+}
+
+function generateMD5Token() {
+    var token = "";
+    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 10; i++) {
+        var randomIndex = Math.floor(Math.random() * characters.length);
+        token += characters.charAt(randomIndex);
+    }
+
+    return btoa(token);
 }
 
 function validateForm() {
-    var token = document.getElementById("token").value;
+    var enteredToken = document.getElementById("token").value;
 
-    // Generate MD5 hash of the token
-    var md5Token = md5(token);
-
-    if (md5Token === "your_generated_token_here") {
+    if (enteredToken === currentToken) {
         return true;
     } else {
         alert("Token incorrecto");

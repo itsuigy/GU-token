@@ -23,11 +23,13 @@
                 </button>
             </div>
         </div>
-      </nav>
-
+    </nav>
+    
     <div class="flex justify-center items-center h-screen">
         <div class="bg-white shadow-lg rounded-lg p-6">
             <h2 class="text-2xl font-semibold mb-4">Iniciar sesión</h2>
+            <button onclick="generateToken()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">Generar Token</button>
+            <p id="tokenText" class="mt-4"></p>
             <form action="inicio.html" method="POST" onsubmit="return validateForm()">
                 <div class="mb-4">
                     <label for="token" class="block text-gray-700">Token:</label>
@@ -37,7 +39,7 @@
             </form>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
